@@ -5,7 +5,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Column;
-import jakarta.persistence.PrePersist;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -19,13 +18,8 @@ public abstract class Base {
     private Long id;
 
     @Column(nullable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(nullable = false)
     private boolean isActive = Boolean.TRUE;
-
-    @PrePersist
-    public void prePersist() {
-        this.createdAt = LocalDateTime.now();
-    }
 }

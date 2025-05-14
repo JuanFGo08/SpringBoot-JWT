@@ -12,7 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class RegisterUserDto {
 
-    public String userName;
+    public String name;
+    public String lastName;
     public String email;
     public String password;
     public String confirmPassword;

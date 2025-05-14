@@ -2,7 +2,6 @@ package com.dev.api_auth.models.entitites;
 
 import com.dev.api_auth.models.enums.RoleList;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

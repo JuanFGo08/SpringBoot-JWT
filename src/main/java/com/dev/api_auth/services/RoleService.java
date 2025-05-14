@@ -27,7 +27,7 @@ public class RoleService {
         roleRepository.save(role);
     }
 
-    public List<Role> list() {
-        return roleRepository.findAll();
+    public List<RoleList> list() {
+        return roleRepository.findAllNames();
     }
 }

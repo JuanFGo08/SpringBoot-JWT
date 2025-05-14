@@ -2,7 +2,7 @@ package com.dev.api_auth.controllers;
 
 import com.dev.api_auth.models.dtos.CreateRoleDto;
 import com.dev.api_auth.models.entitites.Role;
-import com.dev.api_auth.repositories.RoleRepository;
+import com.dev.api_auth.models.enums.RoleList;
 import com.dev.api_auth.services.RoleService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,9 +36,9 @@ public class RoleController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<Map<String, List<Role>>> list() {
-        List<Role> roles = roleService.list();
-        Map<String, List<Role>> response = new HashMap<>();
+    public ResponseEntity<Map<String, List<RoleList>>> list() {
+        List<RoleList> roles = roleService.list();
+        Map<String, List<RoleList>> response = new HashMap<>();
         response.put("roles", roles);
 
         return ResponseEntity.ok(response);

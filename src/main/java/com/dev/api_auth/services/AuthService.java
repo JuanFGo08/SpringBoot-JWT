@@ -5,14 +5,10 @@ import com.dev.api_auth.models.dtos.RegisterUserDto;
 import com.dev.api_auth.models.entitites.Role;
 import com.dev.api_auth.models.entitites.User;
 import com.dev.api_auth.repositories.RoleRepository;
-import com.dev.api_auth.repositories.UserRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -68,7 +64,7 @@ public class AuthService {
             throw new IllegalArgumentException("Invalid roles");
         }
 
-        User user = new User(registerUserDto.getUserName(), registerUserDto.getEmail(), passwordEncoder.encode(registerUserDto.getPassword()), new HashSet<>(roles));
+        User user = new User(registerUserDto.getName(), registerUserDto.getLastName(), registerUserDto.getEmail(), passwordEncoder.encode(registerUserDto.getPassword()), new HashSet<>(roles));
 
         userService.save(user);
     }
